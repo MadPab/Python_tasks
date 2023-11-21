@@ -1,7 +1,37 @@
-def print_board(board):
-    for row in board:
-        print(" ".join(row))
+def empty_board(board):
+    for i in range(3):
+        print(board[i * 3], board[1 + i * 3], board[2 + i * 3])
 
 
-"""Здесь будут крестики-нолики"""
+def get_available_cells(board):
+    return [cell for cell in board if cell != 'X' and cell != 'O']
 
+
+def tic_tac_toe(board):
+    while True:
+        empty_board(board)
+        cell = int(input('Введите номер ячейки: '))
+        print(f'Человек поставил крестик на ячейку {cell}')
+        if cell in get_available_cells(board):
+            board[cell - 1] = 'X'
+            empty_board(board)
+
+            end_game = input('Это конец игры? (Y/N): ')
+            if end_game.lower() == 'y':
+                print('Игра окончена')
+            empty_board(board)
+
+            available_cells = get_available_cells(board)
+            if available_cells:
+                comp = min(available_cells)
+                board[int(comp) - 1] = 'O'
+                print(f'Компьютер поставил нолик на ячейку {comp}')
+            else:
+                print('Нет свободных ячеек!')
+
+        else:
+            print('Введите другое число')
+
+
+board = list(range(1, 10))
+tic_tac_toe(board)

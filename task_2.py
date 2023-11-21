@@ -1,20 +1,20 @@
-def text_analyze(text, max_symb):
-    count_symb = len(text) # длиная теста
-    count_symb_no_space = len(text.replace(' ', '')) # Убираем пробелы
-    if count_symb > 0:
-        print(f"Количество символов в тексте: {count_symb}")
-        print(f"Количество символов в тексте без учета пробелов: {count_symb_no_space}")
-    if count_symb % 2 == 0:
+def analyze_text(text, max_symbols):
+    count_symbols = len(text)
+    count_symbols_no_space = len(text.replace(' ', ''))
+    if count_symbols > 0:
+        print(f"Количество символов в тексте: {count_symbols}")
+        print(f"Количество символов в тексте без учета пробелов: {count_symbols_no_space}")
+    if count_symbols % 2 == 0:
         print("Количество символов в тексте четное")
     else:
         print("Количество символов в тексте нечетное")
-    if max_symb < count_symb:
-        s = count_symb - max_symb
+    if max_symbols < count_symbols:
+        s = count_symbols - max_symbols
         print(f"Длина текста превышает длину {s} символов")
     print("")
 
 
-text = input("Введите текст: ") # Текст
-max_symb = int(input("Введите число: ")) # Максимальная длина
+text = input("Введите текст: ")
+max_symbols = int(input("Введите число: "))
 
-text_analyze(text, max_symb)
+analyze_text(text, max_symbols)

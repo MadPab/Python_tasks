@@ -1,9 +1,9 @@
 import json
 
 
-def text_analyze(text, maxlen, forbidden_words):
-    length = len(text)  # длина текста
-    pure_length = len(text.replace(' ', ''))  # Убираем пробелы
+def analyze_text(text, maxlen, forbidden_words):
+    length = len(text)
+    pure_length = len(text.replace(' ', ''))
 
     pure_text = text
     for e in forbidden_words:
@@ -38,4 +38,4 @@ maxlen = 35
 forbidden_words = ["волшебники", "Гарри Поттер"]
 
 
-text_analyze(text, maxlen, forbidden_words)
+analyze_text(text, maxlen, forbidden_words)

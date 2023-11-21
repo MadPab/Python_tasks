@@ -3,7 +3,7 @@ import datetime
 name = input()
 
 
-def time():
+def hello_user_by_time():
     local_time = datetime.datetime.now().hour
     if 0 <= local_time < 5:
         print("Доброй ночи,", name)
@@ -15,4 +15,4 @@ def time():
         print("Добрый вечер,", name)
 
 
-time()
+hello_user_by_time()

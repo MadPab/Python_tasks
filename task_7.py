@@ -1,6 +1,8 @@
+from typing import List
+
 class UserDB:
-    def __init__(self, json_data):
-        self.users = json_data
+    def __init__(self, json_data=None):
+        self.users = json_data or []
         self.age_limits = {
             "Russia": 18,
             "Japan": 20,
@@ -8,27 +10,27 @@ class UserDB:
             "Thailand": 20
         }
 
-    def users_by_country(self, country):
-        return [user for user in self.users if user["country"].lower() == country.lower()]
+    def users_by_country(self, country: str) -> List[dict]:
+        return [user for user in self.users if user.get["country"].lower() == country.lower()]
 
-    def users_by_age(self, age):
-        return [user for user in self.users if user["age"] == age]
+    def users_by_age(self, age: int) -> List[dict]:
+        return [user for user in self.users if user.get["age"] == age]
 
-    def users_older_age(self, age):
-        return [user for user in self.users if user["age"] > age]
+    def users_older_age(self, age: int) -> List[dict]:
+        return [user for user in self.users if user.get["age"] > age]
 
-    def users_younger_or_equal_age(self, age):
-        return [user for user in self.users if user["age"] <= age]
+    def users_younger_or_equal_age(self, age: int) -> List[dict]:
+        return [user for user in self.users if user.get["age"] <= age]
 
-    def adult_users(self):
-        return [user for user in self.users if user["age"] >= self.age_limits.get(user["country"], 0)]
+    def adult_users(self) -> List[dict]:
+        return [user for user in self.users if user.get["age"] >= self.age_limits.get(user["country"], 0)]
 
-    def teen_users(self):
-        return [user for user in self.users if user["age"] < self.age_limits.get(user["country"], 0)]
+    def teen_users(self) -> List[dict]:
+        return [user for user in self.users if user.get["age"] < self.age_limits.get(user["country"], 0)]
 
-    def invalid_records(self):
+    def invalid_records(self) -> List[dict]:
         return [user for user in self.users if
-                user["is_teen"] == (user["age"] < self.age_limits.get(user["country"], 0))]
+                user.get["is_teen"] == (user.get["age"] < self.age_limits.get(user["country"], 0))]
 
 
 json_data = [

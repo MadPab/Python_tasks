@@ -24,9 +24,9 @@ name = input("Введите имя: ")
 if not name:
     print("Вы не ввели имя. Если вам нужна помощь, обратитесь в службу поддержки.")
 else:
-    def time():
+    def hello_user_by_time():
         local_time = get_local_time()
-        if local_time is not None:
+        if local_time:
             if 0 <= local_time < 5:
                 print("Доброй ночи,", name)
             elif 5 <= local_time < 10:
@@ -36,4 +36,4 @@ else:
             elif 17 <= local_time <= 23:
                 print("Добрый вечер,", name)
 
-    time()
+    hello_user_by_time()

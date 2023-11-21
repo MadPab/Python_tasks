@@ -1,4 +1,4 @@
-def return_true(unsorted, num):
+def get_sum_of_numbers(unsorted, num):
     for e in range(len(unsorted)):
         for k in range(e + 1, len(unsorted)):
             if unsorted[e] + unsorted[k] == num:
@@ -10,5 +10,4 @@ def return_true(unsorted, num):
 unsorted = [1, 3, 2, 12, 11]
 num = 5
 
-return_true(unsorted, num)
-
+get_sum_of_numbers(unsorted, num)

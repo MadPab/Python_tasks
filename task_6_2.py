@@ -1,4 +1,4 @@
-def true_or_false(number):
+def get_true_or_false(number):
     sum_even = 0
     sum_odd = 0
     n1 = number[::2]
@@ -19,4 +19,4 @@ def true_or_false(number):
 
 number = str(input())
 
-true_or_false(number)
+get_true_or_false(number)
